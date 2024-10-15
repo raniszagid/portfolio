@@ -23,7 +23,7 @@ public class EmployeeService {
             return employee.get().toString();
         }
         else {
-            return "Сотрудника с данным id не обнаружено\n";
+            return "Сотрудника с данным id не обнаружено";
         }
     }
 

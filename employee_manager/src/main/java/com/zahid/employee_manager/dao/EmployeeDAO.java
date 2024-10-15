@@ -20,8 +20,8 @@ public class EmployeeDAO {
 
     public Optional<Employee> findUserById(int id) {
         return jdbc
-                .query("SELECT * FROM employees WHERE id=?", new Object[]{id},
-                        new BeanPropertyRowMapper<>(Employee.class))
+                .query("SELECT * FROM employees WHERE id=?",
+                        new BeanPropertyRowMapper<>(Employee.class), id)
                 .stream().findAny();
     }
 

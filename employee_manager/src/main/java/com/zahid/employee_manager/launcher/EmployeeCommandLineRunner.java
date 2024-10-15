@@ -1,5 +1,6 @@
 package com.zahid.employee_manager.launcher;
 
+import com.zahid.employee_manager.exceptions.ExcessParameterException;
 import com.zahid.employee_manager.model.Employee;
 import com.zahid.employee_manager.service.EmployeeService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -43,18 +44,25 @@ public class EmployeeCommandLineRunner implements CommandLineRunner {
         while (!isEnd) {
             String line = scanner.nextLine();
             String[] strings = line.split(" ");
-            switch (strings[0]) {
-                case "findById" -> {
-                    try {
+            try {
+                switch (strings[0]) {
+                    case "findById" -> {
+                        if (strings.length > 2) {
+                            throw new ExcessParameterException();
+                        }
                         int id = Integer.parseInt(strings[1]);
                         System.out.println(employeeService.findById(id));
-                    } catch (NumberFormatException e) {
-                        System.out.println("ID введён некорректно");
                     }
-                }
-                case "groupByName" -> employeeService.groupByName().forEach(System.out::println);
-                case "findBetween" -> {
-                    try {
+                    case "groupByName" -> {
+                        if (strings.length > 1) {
+                            throw new ExcessParameterException();
+                        }
+                        employeeService.groupByName().forEach(System.out::println);
+                    }
+                    case "findBetween" -> {
+                        if (strings.length > 3) {
+                            throw new ExcessParameterException();
+                        }
                         int start = Integer.parseInt(strings[1]);
                         int end = Integer.parseInt(strings[2]);
                         List<Employee> list = employeeService.findBetween(start, end);
@@ -63,12 +71,21 @@ public class EmployeeCommandLineRunner implements CommandLineRunner {
                         } else {
                             list.forEach(System.out::println);
                         }
-                    } catch (NumberFormatException e) {
-                        System.out.println("Год введён некорректно");
                     }
+                    case "exit" -> {
+                        if (strings.length > 1) {
+                            throw new ExcessParameterException();
+                        }
+                        isEnd = true;
+                    }
+                    default -> System.out.println("Команда не найдена");
                 }
-                case "exit" -> isEnd = true;
-                default -> System.out.println("Команда не найдена");
+            } catch (NumberFormatException e) {
+                System.out.println("Числовой параметр введён некорректно");
+            } catch (ArrayIndexOutOfBoundsException e) {
+                System.out.println("Недостаточно параметров команды");
+            } catch (ExcessParameterException e) {
+                System.out.println(e.getMessage());
             }
         }
         System.out.println("Завершение работы...");
