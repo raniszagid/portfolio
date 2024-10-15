@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>All services</title>
+</head>
+<body>
+
+<div th:each="service : ${services}" >
+    <a th:href="@{/admin/services/{id}(id=${service.getId()})}"
+       th:text="${service.getName()}">service</a>
+</div>
+<hr/>
+<a href="/admin/services/new">Insert new service</a>
+
+</body>
+</html>

@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Hello page</title>
+</head>
+<body>
+<p>Welcome to our carservice!!!</p>
+<p><a href="/user">I am client</a></p>
+<p><a href="/admin">I am administrator</a></p>
+<form th:action="@{/logout}" th:method="POST">
+    <input type="submit" value="Logout"/>
+</form>
+</body>
+</html>

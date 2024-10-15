@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>New work</title>
+</head>
+<body>
+<form th:method="POST" th:action="@{/admin/works}" >
+    <label for="work">enter date</label>
+    <input type="date" th:object="${work}" th:field="*{dateWork}" id="work"/>
+
+    <label for="car">Choose car</label>
+    <select th:object="${car}" th:field="*{carId}" id="car">
+        <option th:each="car : ${cars}" th:value="${car.getId()}"
+                th:text="${car.getId() + ', ' + car.getNum() + ', ' + car.getMark() + ', ' + car.getColor()}">
+        </option>
+    </select>
+
+    <label for="master">Choose master</label>
+    <select th:object="${master}" th:field="*{masterId}" id="master">
+        <option th:each="master : ${masters}" th:value="${master.getId()}"
+                th:text="${master.getName()}">
+        </option>
+    </select>
+
+    <label for="service">Choose service</label>
+    <select th:object="${service}" th:field="*{serviceId}" id="service">
+        <option th:each="service : ${services}" th:value="${service.getId()}"
+                th:text="${service.getName()}">
+        </option>
+    </select>
+
+    <input type="submit" value="Ins work"/>
+</form>
+<br/>
+</body>
+</html>

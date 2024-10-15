@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>All cars</title>
+</head>
+<body>
+
+<div th:each="car : ${cars}" >
+    <a th:href="@{/admin/cars/{id}(id=${car.getId()})}"
+       th:text="${car.getNum() +  ', ' + car.getMark() + ', ' + car.getColor() + ', ' +
+      car.getForeignString()}">car</a>
+</div>
+<hr/>
+<a href="/admin/cars/new">Insert new car</a>
+
+</body>
+</html>

@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Master</title>
+</head>
+<body>
+<p th:text="${service.getName()}">VALUE</p>
+<p th:text="${service.getCostOur()}">VALUE</p>
+<p th:text="${service.getCostForeign()}">VALUE</p>
+<br/><br/>
+<a th:href="@{/admin/services/{id}/edit(id=${service.getId()})}">edit</a>
+<form th:method="DELETE" th:action="@{/admin/services/{id}(id=${service.getId()})}">
+    <input type="submit" value="Delete!"/>
+</form>
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>New car</title>
+</head>
+<body>
+<form th:method="POST" th:action="@{/admin/cars}" th:object="${car}">
+    <label for="num">enter num</label>
+    <input type="text" th:field="*{num}" id="num"/>
+    <br/>
+    <div style="color:#e72626" th:if="${#fields.hasErrors('num')}" th:errors="*{num}"> num error </div>
+
+    <label for="mark">enter mark</label>
+    <input type="text" th:field="*{mark}" id="mark"/>
+    <br/>
+    <div th:if="${#fields.hasErrors('mark')}" th:errors="*{mark}"> mark error </div>
+
+    <label for="color">enter color</label>
+    <input type="text" th:field="*{color}" id="color"/>
+    <div th:if="${#fields.hasErrors('color')}" th:errors="*{color}"> color error </div>
+    <br/>
+
+    <label for="foreign">enter is foreign</label>
+    <input type="text" th:field="*{boolStr}" id="foreign"/>
+    <div th:if="${#fields.hasErrors('boolStr')}" th:errors="*{boolStr}"> foreign error </div>
+    <br/>
+
+    <input type="submit" value="Create!!!"/>
+</form>
+</body>
+</html>

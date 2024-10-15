@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Work</title>
+</head>
+<body>
+<p th:text="${work.getWorkDate()}">VALUE</p>
+<p th:text="${work.getMasterName()}">VALUE</p>
+<p th:text="${work.getServiceName()}">VALUE</p>
+<p th:text="${work.getCarNum()}">VALUE</p>
+<p th:text="${work.getCarMark()}">VALUE</p>
+<p th:text="${work.getCarColor()}">VALUE</p>
+<br/><br/>
+<a th:href="@{/admin/works/{id}/edit(id=${work.getId()})}">edit</a>
+<form th:method="DELETE" th:action="@{/admin/works/{id}(id=${work.getId()})}">
+    <input type="submit" value="Delete!"/>
+</form>
+</body>
+</html>

@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>All works</title>
+</head>
+<body>
+<div th:each="work : ${works}" >
+    <p><a th:href="@{/admin/works/{id}(id=${work.getId()})}"
+       th:text="${work.getWorkDate() +  ', ' + work.getMasterName() + ', ' + work.getServiceName() + ', ' +
+      work.getCarNum() + ', ' + work.getCarMark() + ', ' + work.getCarColor()}">work</a></p>
+</div>
+<hr/>
+<a href="/admin/works/new">Create new work</a>
+</body>
+</html>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Cost through date</title>
+</head>
+<body>
+<form th:method="POST" th:action="@{/admin/statistic/cost}">
+    <label for="start">Enter start </label>
+    <input type="date" id="start" name="start">
+    <br/>
+    <label for="end">Enter end</label>
+    <input type="date" id="end" name="end">
+    <br/>
+    <input type="submit" value="Search!"/>
+</form>
+
+<div th:if="${result}">
+<p th:text="${'Foreign cars: '+result.getForeign()}"></p>
+    <p th:text="${'Russian cars: '+result.getRussian()}"></p>
+    <p th:text="${'All cars: '+result.getSum()}"></p>
+</div>
+</body>
+</html>

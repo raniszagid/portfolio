@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>New service</title>
+</head>
+<body>
+<form th:method="POST" th:action="@{/admin/services}" th:object="${service}">
+    <label for="name">enter name</label>
+    <input type="text" th:field="*{name}" id="name"/>
+    <br/>
+    <div style="color:#e72626" th:if="${#fields.hasErrors('name')}" th:errors="*{name}"> name error </div>
+
+    <label for="cost_our">enter cost our</label>
+    <input type="text" th:field="*{costOur}" id="cost_our"/>
+    <br/>
+    <div style="color:#e72626" th:if="${#fields.hasErrors('costOur')}" th:errors="*{costOur}"> name error </div>
+
+    <label for="cost_foreign">enter cost foreign</label>
+    <input type="text" th:field="*{costForeign}" id="cost_foreign"/>
+    <br/>
+    <div style="color:#e72626" th:if="${#fields.hasErrors('costForeign')}" th:errors="*{costForeign}"> name error </div>
+    <input type="submit" value="Create!!!"/>
+</form>
+</body>
+</html>

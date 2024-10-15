@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Top-5 masters</title>
+</head>
+<body>
+<form th:method="POST" th:action="@{/admin/statistic/best}">
+    <label for="month">Enter month </label>
+    <input type="number" id="month" name="month">
+    <br/>
+    <label for="year">Enter year</label>
+    <input type="number" id="year" name="year">
+    <br/>
+    <input type="submit" value="Search!"/>
+</form>
+
+<div th:if="${result}">
+    <div th:if="${result.isEmpty()}">
+        <span>No works in this month </span>
+    </div>
+    <div th:each="person : ${result}">
+        <p th:text = "${person.getMasterName() + ' - ' + person.getQuantity() +
+        ' works completed'}">b</p>
+    </div>
+</div>
+
+</body>
+</html>
