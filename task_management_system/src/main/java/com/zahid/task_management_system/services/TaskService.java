@@ -2,12 +2,12 @@ package com.zahid.task_management_system.services;
 
 import com.zahid.task_management_system.dto.PriorityStatusDTO;
 import com.zahid.task_management_system.dto.TaskDTO;
-import com.zahid.task_management_system.model.Status;
-import com.zahid.task_management_system.model.Task;
-import com.zahid.task_management_system.model.User;
+import com.zahid.task_management_system.models.Status;
+import com.zahid.task_management_system.models.Task;
+import com.zahid.task_management_system.models.User;
 import com.zahid.task_management_system.repositories.TaskRepository;
 import com.zahid.task_management_system.util.Paginator;
-import com.zahid.task_management_system.exception.TaskNotFoundException;
+import com.zahid.task_management_system.exceptions.TaskNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -15,6 +15,7 @@ import org.springframework.transaction.annotation.Transactional;
 import java.util.List;
 
 @Service
+@Transactional
 public class TaskService {
     private final TaskRepository taskRepository;
 
@@ -22,7 +23,7 @@ public class TaskService {
     public TaskService(TaskRepository taskRepository) {
         this.taskRepository = taskRepository;
     }
-    @Transactional
+
     public void save(Task task) {
         taskRepository.save(task);
     }
@@ -51,6 +52,7 @@ public class TaskService {
         taskRepository.save(task);
     }
     public void delete(int id) {
+        findOneById(id);
         taskRepository.deleteById(id);
     }
 

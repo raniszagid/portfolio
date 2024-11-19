@@ -33,14 +33,15 @@ public class SecurityConfig {
                 .authorizeHttpRequests(auth -> {
                     auth
                             .requestMatchers("/auth/login",
-                                    "/auth/registration","/error")
+                                    "/auth/registration","/error",
+                                    "/swagger-ui/**", "/v3/api-docs/**")
                             .permitAll()
                             .anyRequest().authenticated()
                     ;
                 }).formLogin(formLogin ->
                         formLogin.loginPage("/auth/login")
                                 .loginProcessingUrl("/process_login")
-                                .defaultSuccessUrl("/task", true)
+                                .defaultSuccessUrl("/tasks", true)
                                 .failureUrl("/auth/login?error"))
                 .logout(logout -> logout.logoutUrl("/logout")
                         .logoutSuccessUrl("/auth/login"))

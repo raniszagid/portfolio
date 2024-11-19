@@ -1,6 +1,6 @@
 package com.zahid.task_management_system.services;
 
-import com.zahid.task_management_system.model.User;
+import com.zahid.task_management_system.models.User;
 import com.zahid.task_management_system.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;

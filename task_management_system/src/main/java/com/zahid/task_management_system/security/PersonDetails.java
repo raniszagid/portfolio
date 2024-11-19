@@ -1,6 +1,6 @@
 package com.zahid.task_management_system.security;
 
-import com.zahid.task_management_system.model.User;
+import com.zahid.task_management_system.models.User;
 import lombok.Getter;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;

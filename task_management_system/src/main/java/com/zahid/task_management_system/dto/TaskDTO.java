@@ -1,6 +1,6 @@
 package com.zahid.task_management_system.dto;
 
-import com.zahid.task_management_system.model.*;
+import com.zahid.task_management_system.models.*;
 
 public class TaskDTO {
     private String title;

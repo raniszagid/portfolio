@@ -1,13 +1,15 @@
 package com.zahid.task_management_system.services;
 
-import com.zahid.task_management_system.model.Comment;
-import com.zahid.task_management_system.model.Task;
-import com.zahid.task_management_system.model.User;
+import com.zahid.task_management_system.models.Comment;
+import com.zahid.task_management_system.models.Task;
+import com.zahid.task_management_system.models.User;
 import com.zahid.task_management_system.repositories.CommentRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 @Service
+@Transactional
 public class CommentService {
     private final CommentRepository commentRepository;
     @Autowired

@@ -1,7 +1,7 @@
 package com.zahid.task_management_system.dto;
 
-import com.zahid.task_management_system.model.Priority;
-import com.zahid.task_management_system.model.Status;
+import com.zahid.task_management_system.models.Priority;
+import com.zahid.task_management_system.models.Status;
 
 public class PriorityStatusDTO {
     private Priority priority;

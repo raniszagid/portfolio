@@ -1,8 +1,8 @@
 package com.zahid.task_management_system.services;
 
-import com.zahid.task_management_system.model.User;
+import com.zahid.task_management_system.models.User;
 import com.zahid.task_management_system.repositories.UserRepository;
-import com.zahid.task_management_system.exception.UserNotFoundException;
+import com.zahid.task_management_system.exceptions.UserNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

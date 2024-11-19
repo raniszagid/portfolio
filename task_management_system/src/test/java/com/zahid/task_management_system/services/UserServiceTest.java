@@ -1,6 +1,6 @@
 package com.zahid.task_management_system.services;
 
-import com.zahid.task_management_system.exception.UserNotFoundException;
+import com.zahid.task_management_system.exceptions.UserNotFoundException;
 import com.zahid.task_management_system.repositories.UserRepository;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;

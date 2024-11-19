@@ -1,8 +1,6 @@
 package com.zahid.task_management_system.services;
 
-import com.zahid.task_management_system.exception.TaskNotFoundException;
-import com.zahid.task_management_system.model.Status;
-import com.zahid.task_management_system.model.Task;
+import com.zahid.task_management_system.exceptions.TaskNotFoundException;
 import com.zahid.task_management_system.repositories.TaskRepository;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
